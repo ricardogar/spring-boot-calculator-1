@@ -3,9 +3,13 @@ node {
   stage('Preparation') {
     git 'https://github.com/jorgerisco/spring-boot-calculator-grupo-2.git'
   }
-  def =mvnHome="/opt/apache-maven-3.5.0"
+  def mvnHome="/opt/apache-maven-3.5.0"
   stage('Build '){
-  sh "'${mvnHome}/bin/mvn package"
+  sh "'${mvnHome}/bin/mvn' package"
+  }
+  def groupName="expositor"
+  stage ('QA Analis'){
+   sh "'${mvnHome}/bin/mvn sonar.sonar -Dsonar.host.url=52.200.16.168.109:900 -Dsonar.projectName=${groupName} -Dsonar.projectKey=${groupName}"
   }
 
 }
