@@ -11,5 +11,14 @@ node {
   stage ('QA Analis'){
    sh "'${mvnHome}/bin/mvn sonar.sonar -Dsonar.host.url=52.200.16.168.109:900 -Dsonar.projectName=${groupName} -Dsonar.projectKey=${groupName}"
   }
-
+  stage ('Result'){
+   junit "**/target/sufire-reports/Test-*.xml"
+   archive "/target/*.jar"
+  }
+  def hostExposePort=8083
+  stage('Deployment'){
+   sh "chmod +x devops/deploy.sh"
+   def result= sh(script :"devops/deploy.sh ${hostExposePort}",returnStdout :true)
+   echo "Resultado:"+ result
+  }
 }
