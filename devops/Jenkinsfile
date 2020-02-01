@@ -1,7 +1,7 @@
 node {
 
   stage('Preparation') {
-    git 'https://github.com/ricardogar/spring-boot-calculator-grupo-2.git'
+    git 'https://github.com/ricardogar/spring-boot-calculator-1.git'
   }
   def mvnHome="/usr/share/maven"
   stage('Build '){
