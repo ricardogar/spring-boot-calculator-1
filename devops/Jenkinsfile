@@ -9,7 +9,7 @@ node {
   }
   def groupName="expositor"
   stage ('QA Analis'){
-   sh "'${mvnHome}/bin/mvn sonar.sonar -Dsonar.host.url=52.200.16.168.109:900 -Dsonar.projectName=${groupName} -Dsonar.projectKey=${groupName}"
+
   }
   stage ('Result'){
    junit "**/target/sufire-reports/Test-*.xml"
