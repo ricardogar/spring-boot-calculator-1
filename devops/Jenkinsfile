@@ -12,7 +12,7 @@ node {
 
   }
   stage ('Result'){
-    
+    junit "**/target/sufire-reports/Test-*.xml"    
     archive "/target/*.jar"
   }
   def hostExposePort=8083
