@@ -9,10 +9,8 @@ node {
   }
   def groupName="expositor"
   stage ('QA Analis'){
-
   }
-  stage ('Result'){
-    junit "**/target/sufire-reports/Test-*.xml"    
+  stage ('Result'){  
     archive "/target/*.jar"
   }
   def hostExposePort=8083
