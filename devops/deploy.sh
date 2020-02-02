@@ -1,4 +1,4 @@
-export DOCKER_HOST=tcp://localhost:4243
+export DOCKER_HOST=tcp://127.0.0.1:4243
 export hostExposePort=$1
 echo "hostExposePort: ${hostExposePort}"
 
